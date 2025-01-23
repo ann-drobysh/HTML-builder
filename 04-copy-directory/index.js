@@ -4,7 +4,7 @@ const filesPath = pathModule.join(__dirname, '/files');
 
 
 async function copyDirectory(){
-    await fsModule.rm(pathModule.join(__dirname, '/files-copy'), {recursive: true});
+    await fsModule.rm(pathModule.join(__dirname, '/files-copy'), {recursive: true, force: true});
     const filesCopyPath = await fsModule.mkdir(pathModule.join(__dirname, '/files-copy'), {recursive: true});
     const files = await fsModule.readdir(filesPath);
     files.forEach(async file => {
